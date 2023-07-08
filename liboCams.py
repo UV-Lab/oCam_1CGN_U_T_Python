@@ -308,7 +308,7 @@ class oCams():
       self.mode = 0
     elif self.cam.card == b'oCam-5CRO-U':
       self.mode = 1
-    elif self.cam.card == b'oCam-1CGN-U':
+    elif self.cam.card == b'oCam-1CGN-U-T':
       self.mode = 2
     elif self.cam.card == b'oCam-1MGN-U':
       self.mode = 2
@@ -380,9 +380,8 @@ class oCams():
     return self.cam.EnumerateFormats()
     
 def FindCamera(strCamera):
-  import os
   try:
-    for path in os.listdir('/dev/v4l/by-id/'):
+    for path in sorted(os.listdir('/dev/v4l/by-id/')):
       if path.find(strCamera) >= 0:
         devpath = os.path.join('/dev/v4l/by-id/',path)
         return devpath

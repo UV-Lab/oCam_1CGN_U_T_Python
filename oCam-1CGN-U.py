@@ -21,7 +21,7 @@ for key in ctrlist:
   print (key, hex(ctrlist[key]))
 
 test.SetControl(ctrlist[b'Gain'], 60)
-test.SetControl(ctrlist[b'Exposure (Absolute)'],200)
+test.SetControl(ctrlist[b'Exposure Time, Absolute'],200)
 test.Close()
 
 if True:
